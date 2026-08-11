@@ -3,12 +3,17 @@ const route = express.Router();
 const connection = require('../dbconnect');
 
 //GET DATA PRODUK
-route.get('/',(req, res)=>{
-    connection.query('SELECT * FROM products', (err, result)=>{
-        if(err) return res.status(500).json({error: err.message});
+route.get('/', (req, res) => {
+    const showAll = req.query.all === 'true';  
+    const sql = showAll 
+        ? 'SELECT * FROM products' 
+        : 'SELECT * FROM products WHERE is_active = TRUE';
+
+    connection.query(sql, (err, result) => {
+        if (err) return res.status(500).json({ error: err.message });
         res.json(result);
-    })
-})
+    });
+});
 
 
 //POST DATA
@@ -39,11 +44,29 @@ route.put('/:id', (req, res)=>{
 })
 
 //DELETE  PRODUK
-route.delete('/:id', (req, res)=>{
-    connection.query('DELETE FROM products WHERE id = ?', [req.params.id], (err)=>{
-        if(err) return res.status(500).json({error: err.message});
-        res.json({message: 'DELETE DATA BERHASIL'}); 
-    })
-})
+route.delete('/:id', (req, res) => {
+    connection.query(
+        'UPDATE products SET is_active = FALSE WHERE id = ?', 
+        [req.params.id], 
+        (err, result) => {
+            if (err) return res.status(500).json({ error: err.message });
+            if (result.affectedRows === 0) {
+                return res.status(404).json({ error: 'Produk tidak ditemukan' });
+            }
+            res.json({ message: 'Produk berhasil dinonaktifkan' });
+        }
+    );
+});
+
+route.put('/:id/activate', (req, res) => {
+    connection.query(
+        'UPDATE products SET is_active = TRUE WHERE id = ?', 
+        [req.params.id], 
+        (err, result) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ message: 'Produk berhasil diaktifkan kembali' });
+        }
+    );
+});
 
 module.exports = route;
