@@ -1,0 +1,86 @@
+body{
+    font-size: 1rem;
+}
+.tab-category-product{
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-category-product .card-category{
+    cursor: pointer;
+    width: 8rem;
+    padding: 5px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.tab-category-product .card-category:hover{
+    border: 1px solid white;
+
+}
+
+.layer-1{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+
+}
+.layer-1 .card-produk{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 25rem;
+}
+.layer-1 .card-produk:hover{
+    border: 2px solid black;
+}
+.layer-1 .card-produk .img-produk{
+    width: 100%;
+    height: 18rem;
+    /* background-color: blue; */
+    overflow: hidden;
+    /* padding: 20px; */
+}
+.img-produk img{
+    height: 100%;
+    width: 100%;
+}
+
+.card-produk .description{
+    padding: 0.5rem;
+    color: var(--font-dark);
+}
+.description p{
+    color: rgb(84, 83, 83);
+}
+.description .deskripsi-produk{
+    display: none;    
+}
+
+@media (max-width: 768px) {
+    body{
+        font-size: 0.75rem;
+    }
+    .layer-1{
+        grid-template-columns: repeat(2, 1fr);
+        /* font-size: 0.75rem; */
+    }
+    .layer-1 .card-produk{
+        height: 15rem;
+        /* background-color: red; */
+    }
+}
+@media (max-width: 480px) {
+    .layer-1{
+        /* grid-template-columns: repeat(1, 1fr); */
+    }
+}

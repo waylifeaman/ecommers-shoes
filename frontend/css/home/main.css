@@ -1,0 +1,272 @@
+/* JUMBOTRON ATAU PAGE ATAS */
+.jumbotron{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 25rem;
+    background-color: aqua;
+}
+.jumbotron .foto-1{
+    width: 33%;
+    background-color: antiquewhite;
+    overflow: hidden;
+}
+.jumbotron .foto-2{
+    width: 34%;
+    background-color: aquamarine;
+    overflow: hidden;
+}
+.jumbotron .foto-3{
+    width: 33%;
+    overflow: hidden;
+    background-color: beige;
+}
+.foto-2 img{
+    width: 100%;
+    
+}
+.jumbotron .task{
+    margin: 10rem 200px 0 20px;
+    position: absolute;
+    width: 35rem;
+    height: 10rem;
+    display: flex;    
+    flex-direction: column;
+    font-size: 1rem;
+}
+
+.jumbotron .task h3{
+    background-color: white;
+    padding: 1rem;
+    margin: 5px;
+    width:50%;
+}
+.jumbotron .task p{
+    margin: 5px;
+    background-color: #fff;
+    padding: 1rem;
+}
+.jumbotron .task .kotak{
+    cursor: pointer;
+    background-color: white;
+    width: 200px;
+    height: 55px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 25% 5px auto;
+    position: absolute;
+}
+.jumbotron .task .line{
+    border: 2px solid white;
+    width: 200px;
+    height: 55px;
+    position: absolute;
+    margin: 26% 2% auto ;
+}
+
+/* TAB CATEGORY */
+.tab-category{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.tab-category .rowCategory div.active {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.tab-category .rowCategory {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+.tab-category .rowCategory .card-category{
+    cursor: pointer;
+    width: 50%;
+    margin: 0 5px 0 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.tab-category .rowLiat{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+
+
+/* LAYER 1 ATAU KONTER PRODUK */
+.layer-1{
+    overflow: hidden;
+    height: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.card-produk:hover{
+
+    border: 2px solid black
+}    
+.card-produk{    
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 99%;
+    height: 100%;
+}
+.card-produk .img-produk{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.card-produk .img-produk img{
+    width: 100%;
+    height: 100%;
+}
+.card-produk .description{
+    overflow: hidden;
+   padding: 5px 5px 5px 5px;
+   width: 100%;
+   text-align: left;
+   font-family: var(--font-heading);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.description p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(84, 84, 84);
+}
+
+.description .nama-produk{
+    font-size: 20px;
+    color: var(--font-dark);
+    /* font-weight: bold; */
+}
+
+@media (max-width: 768px){
+    .jumbotron {
+            display: flex;
+            flex-direction: row;
+            max-width: 768px;
+            height: 30rem;
+            background-color: aqua;
+        }
+    .jumbotron .task {
+        margin: 20rem 200px 0 20px;
+        position: absolute;
+        width: 25rem;
+        height: 6rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 0.75rem;
+    }
+        .jumbotron .task h3 {
+            background-color: white;
+            padding: 0.1rem;
+            margin: 2px;
+            width: 40%;
+        }
+    
+        .jumbotron .task p {
+            margin: 2px;
+            background-color: #fff;
+            padding: 0.1rem;
+        }
+    
+        .jumbotron .task .kotak {
+            cursor: pointer;
+            background-color: white;
+            width: 150px;
+            height: 30px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin: 15% 2px auto;
+            position: absolute;
+        }
+    
+        .jumbotron .task .line {
+            border: 2px solid white;
+            width: 150px;
+                height: 30px;
+            position: absolute;
+            margin: 16% 1.5% auto;
+        }
+        .foto-1 , .foto-2{
+            display: none;
+        }
+        .jumbotron .foto-3{
+            width: 100%;
+        }
+
+        /* TAB CATEGORY */
+        .tab-category .rowCategory {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            gap: 0.1rem;
+        }
+    
+        .tab-category .rowCategory .card-category {
+            cursor: pointer;
+            /* width: 50%; */
+            margin: 0 0 0 0;
+            padding: 0.1rem;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+        }
+    
+        .tab-category .rowLiat {
+            width: 50%;
+            display: flex;
+            font-size: 0.75rem;
+            justify-content: end;
+            align-items: center;
+            padding-right: 10px;
+            text-decoration: underline;
+        }
+        /* LAYER 1 */
+    .layer-1 {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 0.7rem;
+        padding: 10px;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .card-produk .img-produk{
+        overflow: hidden;
+        width: 100%;
+        height: 190px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    
+}

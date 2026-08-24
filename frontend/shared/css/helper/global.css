@@ -1,0 +1,174 @@
+/* ==========================================
+   GLOBAL.CSS
+   File pusat untuk semua "token" desain: warna, font, spacing.
+   Import file ini di SETIAP halaman HTML, sebelum CSS khusus halaman.
+   ========================================== */
+
+:root {
+    /* ---- Warna utama (dari palet) ---- */
+    --color-light: #DDDCDB;
+    /* abu terang - background sekunder */
+    --color-primary: #FD7B41;
+    /* oranye - warna aksen utama, tombol, highlight */
+    --color-peach: #EDBF9B;
+    /* peach - background lembut, card */
+    --color-dark: #3C4044;
+    /* abu gelap - teks utama, navbar, footer */
+
+    /* ---- Turunan warna (biar gak define ulang di banyak tempat) ---- */
+    --color-bg: #FFFFFF;
+    --color-text: var(--color-dark);
+    --color-text-muted: #6b6f73;
+    --color-border: var(--color-light);
+
+    /* Warna status (dipakai di pesan error/sukses, misal validasi form) */
+    --color-success: #4a7c59;
+    --color-error: #c0392b;
+
+    /* ---- Tipografi ---- */
+    --font-heading: 'Trebuchet MS', 'Arial Narrow', sans-serif;
+    --font-body: Georgia, 'Times New Roman', serif;
+
+    /* ---- Spacing (biar jarak antar elemen konsisten) ---- */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+
+    /* ---- Radius & shadow (biar tombol/card seragam) ---- */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --shadow-card: 0 4px 12px rgba(60, 64, 68, 0.1);
+
+    --font:  "Oswald",sans-serif;
+        
+}
+
+/* ==========================================
+   RESET DASAR — biar semua browser mulai dari titik yang sama
+   ========================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    line-height: 1.2;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==========================================
+   UTILITY CLASSES — dipakai bareng di banyak halaman
+   ========================================== */
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--color-primary);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+    background: #e56b32;
+    /* sedikit lebih gelap dari --color-primary */
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-dark);
+    outline-offset: 2px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-md);
+}
+
+.input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+.text-error {
+    color: var(--color-error);
+    font-size: 13px;
+}
+
+.text-success {
+    color: var(--color-success);
+    font-size: 13px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}

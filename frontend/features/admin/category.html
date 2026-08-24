@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Category Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/helper/alert.css">
+    <link rel="stylesheet" href="../../css/admin/category.css">
+    <link rel="stylesheet" href="../../shared/css/admin/globalAdmin.css">
+    <link rel="stylesheet" href="../../shared/css/helper/global.css">
+    <link rel="stylesheet" href="../../shared/css/admin/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <app-admin-header title="Daftar Kategori"></app-admin-header>
+
+    <main>
+        
+        <div class="content">
+            <div class="top">
+                <button class="btnTambahData" id="tambahCategory">tambah categori</button>
+            </div>  
+            <div class="tabel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id ="data-category">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>  
+
+        <div id="modalOverlay" class="modal-overlay hidden">
+            <div class="card-modal">
+                <div class="card-header">
+                    <h3 id="modalTitle"></h3>
+                    <button type="button" class="btn-close" id="btnCloseModal">&times;</button>
+                </div>    
+                <div class="card-body">
+                    <form id="formCategory">
+                        <input id="categoryId" value="" hidden />    
+                        <div class="form-group">
+                            <label for="categoryName">Nama Kategori</label>
+                            <input type="text" id="categoryName" placeholder="Masukkan nama kategori..." required />
+                        </div>    
+                        <div class="card-footer">
+                            <button type="button" class="btn-secondary" id="btnCancel">Batal</button>
+                            <button type="submit" class="btn-primary" id="simpan">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/auth/helper/alert.js"></script>
+    <script src="../../shared/api/category.js"></script>
+    <script src="../js/admin/scriptCategory.js"></script>
+    <script src="../../shared/js/component/admin/headerAdmin.js"></script>
+
+
+</body>
+</html>

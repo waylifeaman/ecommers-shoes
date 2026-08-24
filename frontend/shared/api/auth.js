@@ -26,8 +26,8 @@ function passwordvalidasi(data) {
     console.log("password valid" + " " + password);
     return true;
   } else {
-    console.log(
-      "password harus huruf besar minimal 1 minimal 6 karakter dan ada tanda . )" +
+    showAlert(
+      "password harus terdiri dari 6 karakter 1 huruf Kapital dan (#@!)" +
         password,
     );
 
@@ -48,19 +48,25 @@ function validasiData(data) {
   }
 }
 
+
+const endpointDataUser = "http://localhost:3000/data-users" 
+
 async function addUsers(data) {
-    const res = await fetch("http://localhost:3000/data-users",{
+    const res = await fetch(endpointDataUser,{
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
     });
     if(!res.ok){
         const error = await res.json();
-        console.log("Registrai Gagal", error.error);
+        showAlert(`Registrasi Gagal: ${error.error}`, "error");
         return;
+    }else{
+        const result = await res.json();
+        showAlert("Daftar berhasil", "success",()=>{
+            window.location.href="login.html";
+        });
     }
-    const result = await res.json();
-    console.log("Daftar berhasil", result);
 
 }
 
@@ -72,13 +78,36 @@ async function loginUser(data) {
     });
     if(!res.ok){
         const error = await res.json();
-        console.log("login Gagal", error.error);
+        showAlert(`login Gagal: ${error.error}`, "error");
         return
+    }else{
+        const result = await res.json();
+        localStorage.setItem("currentUser", JSON.stringify(result.user));
+
+        showAlert('Login Behasil', result,()=>{     
+            if (result.user.role === "owner"){
+                window.location.href = "../admin/admin.html"
+            }else{   
+                window.location.href = "../home/main.html";
+            }
+        });
     }
-    const result = await res.json();
-    window.location.href = "../home/main.html";
-    console.log("Login Behasil", result)
 }
+
+async function getDataUser() {
+    const res = await fetch(endpointDataUser,{
+        method: "GET",
+        headers:{
+            "Content-Type": "application/json"
+        }
+    })
+    if(!res.ok){
+        throw new Error("Gagal Ambil Data User");
+    }
+    return await res.json();
+}
+
+
 
 if(btnregister){
     btnregister.addEventListener("click",()=>{
@@ -89,7 +118,7 @@ if(btnregister){
             role:"customer"
         }
         if(!validasiData(data) || !emailvalidasi(data) || !passwordvalidasi(data)){
-            // console.log("data tidak valid");
+            console.log("data tidak valid");
             return;
         }
         addUsers(data);
@@ -103,7 +132,7 @@ if(btnlogin){
             password: password.value
         }
         if(!emailvalidasi(data)){
-            console.log("Masukkan Email dan Password yang terdaftar");
+            alert("Masukkan Email dan Password yang terdaftar");
             return;        
             }
         loginUser(data);

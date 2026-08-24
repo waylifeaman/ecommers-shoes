@@ -1,0 +1,162 @@
+/* HEADER */
+.header {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+}
+
+.judul h1 {
+    font-family: var(--font)
+}
+
+.col-1 {
+    width: 15%;
+    align-items: center;
+    display: flex;    
+    justify-content: center;
+}
+
+.col-2 {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 1rem;
+}
+.col-2 .cart{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;  
+}
+.cart img{
+    cursor: pointer;
+    /* margin: 0 5rem 0 5rem; */
+}
+.col-3 {
+    width: 25%;
+    align-items: center;
+    display: flex;    
+    justify-content: center;
+}
+
+.col-3 .navbar nav {
+    display: flex;
+    justify-content: center;
+}
+
+.col-3 .navbar nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.col-3 .navbar nav ul li {
+    cursor: pointer;
+    padding: 1% 5% 1% 5%;
+    list-style: none;
+}
+
+.col-3 .navbar nav ul li a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-family: var(--font);
+}
+
+.col-3 .navbar nav ul li:hover {
+    text-decoration: none;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    /* border: 1px solid black; */
+}
+
+
+
+/* FOOTER */
+footer{
+    width: 100%;
+    font-size: 1rem;
+}
+footer .conten-footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+}
+.conten-footer .foot{
+    width: 100%;
+}
+
+.foot ul li{
+    list-style: none;
+}
+.foot ul li h2{
+    color: white;
+ }
+ .copyright{
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: black;
+ }
+
+
+ /* TAB */
+ @media (max-width: 768px){
+    .header{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-width: 768px;
+    }
+    .col-1{
+        width: 100%;
+    }
+    .col-1 .logo{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .col-3{
+        width: 100%;
+        
+    }
+    .col-3 .navbar{
+        width: 100%;
+        justify-content: center;
+        
+    }
+    .col-3 .navbar nav ul li {
+        padding: 0;
+        width: 4rem;
+        height: 2rem;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .col-2{        
+        width: 100%;
+    }
+    .col-2 .cart{
+        width: 100%;
+    }
+
+
+
+    /* FOOTER */
+    .conten-footer{
+        font-size: 0.75rem;
+    }
+}
+
+
+/* mobile */
+ @media (max-width: 480px) {
+   
+ }

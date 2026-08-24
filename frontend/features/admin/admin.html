@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/helper/alert.css">
+    <link rel="stylesheet" href="../../shared/css/helper/global.css">
+    <link rel="stylesheet" href="../../css/admin/admin.css">
+    <link rel="stylesheet" href="../../shared/css/admin/globalAdmin.css">
+    <link rel="stylesheet" href="../../shared/css/admin/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <app-admin-header></app-admin-header>
+    <main>
+        <aside>
+            <div class="sidebar">
+                <div class="head">
+                    <h3>Tambah Produk</h3>
+                    <p>Isi form dibawah untuk menambah item</p>
+                </div>
+                <div id="form-container" class="form-container">
+                    <!-- ISI FORM -->
+                </div>
+            </div>
+            <div class="content">
+                <div class="head">
+                    <h4>Catalog Monitor Produk</h4>
+                    <p>Daftar produk aktual yang terbit di halaman user.</p>
+                </div>
+            
+                <div class="main">
+                    <div class="tab-category">
+                        <!-- TAB CATEGORY -->
+                    </div>
+            
+                    <!-- Tabel Katalog -->
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="12%">GAMBAR</th>
+                                    <th width="58%" >DETAIL KATALOG</th>
+                                    <th width="10%%">SIZE</th>
+                                    <th width="10%%">STOK</th>
+                                    <th width="10%%">AKTIF</th>
+                                    <th width="10%" class="text-right">AKSI</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list-product">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+
+        <div id="modalOverlaySize" class="modal-overlay hidden">
+            <div class="card-modal">
+                <div class="card-header">
+                    <h3 id="modalSizeTitle">Kelola Stok Produk</h3>
+                    <button type="button" class="btn-close" id="btnCloseModalSize">&times;</button>
+                </div>
+                <div class="card-body">
+                    <form id="formProductSize">
+                        <input id="sizeProductId" hidden/>
+                        <div id="sizeInputsContainer" class="size-grid">
+                            <!-- input ukuran 36-45 di-generate lewat JS -->
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn-secondary" id="btnCancelSize">Batal</button>
+                            <button type="submit" class="btn-primary">Simpan Stok</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<script src="../js/auth/helper/alert.js"></script>
+<script src="../../shared/api/produk.js"></script>
+<script src="../../shared/api/category.js"></script>
+<script src="../../shared/js/component/admin/headerAdmin.js"></script>
+<script src="../js/admin/scriptAdmin.js"></script> 
+<script src="../../shared/js/component/publicFunction.js"></script>
+
+<script src="../../shared/api/produkSize.js"></script>
+<script src="../js/admin/scriptSizeProduk.js"></script>
+</body>
+</html>

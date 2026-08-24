@@ -1,0 +1,317 @@
+
+
+/* MAIN */
+/* SIDEBAR */
+aside{
+    display: flex;
+    flex-direction: row;
+}
+.sidebar{
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    max-width: 1100px;
+    margin: 10px 0 auto;
+    width: 30%;
+}
+
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+
+}
+.head p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.form-container{
+    padding: 10px;
+}
+.form-container label{
+    font-family: var(--font);
+
+} 
+.form-container input, textarea, select{
+    background-color: rgb(246, 246, 246);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: aliceblue;
+    border-top-width: 20cap;
+    border-style: hidden;
+}
+
+.form-container .btn button{
+    background: none;
+    border: none;
+    color: aliceblue;
+}
+.form-container .btn{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Main Container Card */
+.content {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    max-width: 70%;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 70%;
+}
+
+/* Header Section */
+.head h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.head p {
+    font-size: 14px;
+    color: #8c8c8c;
+    margin-bottom: 24px;
+}
+
+/* Tab Filter Section */
+.tab-category ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin-bottom: 28px;
+}
+
+.tab-category li {
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-category li:hover {
+    background-color: #e5e7eb;
+}
+
+.tab-category li.active {
+    background-color: #000000;
+    color: #ffffff;
+}
+.searchbar-wrapper input{
+    border: none;
+    background: none;
+    outline: none;
+    width: 200px;
+}
+
+
+
+
+
+/* Table Styles */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #f9fafb;
+    color: #888888;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+
+}
+
+thead th .text-right {
+    text-align: right;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody td {
+    padding: 20px 16px;
+    vertical-align: middle;   
+}
+
+tr .text-center{
+    text-align: center;
+}
+
+/* Column 1: Image & Overlay Badge */
+
+
+
+/* Column 2: Product Detail */
+.div-detail-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.div-detail-top .nama-produk {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+}
+
+.kategori {
+    background-color: #f3f4f6;
+    color: #374151;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.price {
+    background-color: #e6f4ea;
+    color: #137333;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.product-desc, .stock {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.product-link {
+    font-size: 13px;
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.product-link:hover {
+    text-decoration: underline;
+}
+
+/* Column 3: Actions */
+/* td .text-right {
+    text-align: right;
+} */
+
+.btn-edit:hover {
+    background-color: #EDBF9B;
+}
+
+.btn-edit {
+    cursor: pointer;
+    display: inline-flex;
+    gap: 8px;
+    /* background-color: var(--color-primary); */
+    padding: 3px 10px 3px 10px;
+    border-radius: 5px;
+    font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: bold;
+    
+}
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    /* abu-abu = nonaktif */
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.toggle-slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* Saat checkbox dicentang (aktif) */
+.toggle-switch input:checked+.toggle-slider {
+    background-color: #16a34a;
+    /* hijau = aktif */
+}
+
+.toggle-switch input:checked+.toggle-slider::before {
+    transform: translateX(20px);
+    /* geser bulatan ke kanan */
+}
+
+
+
+/* FORM KELOLA SETOK */
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.size-input-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.size-input-item label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.size-input-item input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}

@@ -1,14 +1,29 @@
-<!-- index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sultan Sepatu</title>
 
+<link rel="stylesheet" href="./shared/css/helper/global.css">
+<link rel="stylesheet" href="./shared/css/index.css">
+</head>
 <body>
-    <div class="splash">
-        <h1>Selamat Datang di Toko Sepatu</h1>
-        <div class="loading-spinner"></div>
-    </div>
 
-    <script>
-        setTimeout(() => {
-            window.location.href = "features/auth/register.html";
-        }, 2000);  // tunggu 2 detik, baru pindah halaman
-    </script>
+  <div class="splash">
+    <div class="loader" role="status" aria-label="Memuat"></div>
+    <div class="brand">
+      <!-- <p class="eyebrow">Sepatu Pilihan Terbaik</p> -->
+      <h1>Sultan Sepatu</h1>
+      <p class="welcome">Selamat datang di Toko Kami</p>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "features/auth/login.html";
+    }, 3000); // tunggu 3 detik, baru pindah halaman
+  </script>
+
 </body>
+</html>

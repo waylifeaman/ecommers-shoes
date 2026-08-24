@@ -5,25 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoginPage</title>
+    <link rel="stylesheet" href="../../shared/css/helper/alert.css">
+    <link rel="stylesheet" href="../../shared/css/helper/global.css">
+    <link rel="stylesheet" href="../../shared/css/auth/auth.css">
 </head>
 
 <body>
-    <div class="card-auth">
-        <h1 class="judul" id="judul">Silahkan Login Terlebih Dahulu</h1>
-
-        <div class="form">
-            <p>Masukkan Email</p>
-            <input type="email" name="" id="email" placeholder="Masukkan Email" required><br>
-            <p>Masukkan Password</p>
-            <input type="password" name="" id="password" placeholder="Masukkan password" required><br>
+    <header></header>
+    <main class="main-login">
+        <div class="left"></div>
+        <div class="card-auth">
+            <h1 class="judul" id="judul">Silahkan Login Terlebih Dahulu</h1>
+            <div class="form">
+                <p>Masukkan Email</p>
+                <input type="email" name="" id="email" placeholder="Masukkan Email" required><br>
+                <p>Masukkan Password</p>
+                <input type="password" name="" id="password" placeholder="Masukkan password" required><br>
+            </div>
+            <div class="submit">
+                <div class="bt">
+                    <button class="btn" id="btn-login">Login</button>
+                </div>  
+                <p>Belum punya akun ? <a href="register.html">Daftar</a></p>
+            </div>
         </div>
-        <div class="submit">
-            <button id="btn-login">Login</button>
-            <p>Belum punya akun ? <a href="register.html">Daftar</a></p>
-        </div>
-
-    </div>
-    <script src="../js/auth/script.js"></script>
+        <div class="right"></div>
+    </main>
+    <script src="../js/auth/helper/alert.js"></script>
+    <script src="../../shared/api/auth.js"></script>
 </body>
 
 </html>

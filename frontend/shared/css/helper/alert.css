@@ -1,0 +1,93 @@
+/* alert.css
+   Custom alert modal — pengganti alert() bawaan browser.
+   Pastikan global.css sudah di-link SEBELUM file ini.
+*/
+
+.alert-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(60, 64, 68, 0.55);
+    /* var(--color-dark) dengan transparansi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.alert-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.alert-box {
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 12px 32px rgba(60, 64, 68, 0.25);
+    text-align: center;
+
+    transform: translateY(12px) scale(0.97);
+    transition: transform 0.2s ease;
+}
+
+.alert-overlay.active .alert-box {
+    transform: translateY(0) scale(1);
+}
+
+.alert-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin: 0 auto var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.alert-box.error .alert-icon {
+    background: var(--color-error);
+}
+
+.alert-box.success .alert-icon {
+    background: var(--color-success);
+}
+
+.alert-box.info .alert-icon {
+    background: var(--color-primary);
+}
+
+.alert-message {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: var(--space-lg);
+}
+
+.alert-btn {
+    display: inline-block;
+    padding: 10px 32px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--color-primary);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.alert-btn:hover {
+    background: #e56b32;
+}
