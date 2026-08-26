@@ -25,12 +25,26 @@ class AppHeader extends HTMLElement {
                                     
                         <input type="text" placeholder="Cari Produk...">
                         <img src="../../assets/icons/person.png" alt="" class="icon-person">  
-                        <img src="../../assets/icons/cart.png" alt="">
+                        <img src="../../assets/icons/cart.png" alt="" class= "icon-cart">
                 </div>
             </div>
         </div>
     </header>
   `;
+
+    const cart = document.querySelector(".icon-cart");
+    
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    cart.addEventListener('click', () => {
+        if (!currentUser) {
+            alert("Silakan login dulu");
+            return;
+        }
+        window.location.href = `../../features/home/cart.html`;
+    });
+
+
   }}  
 customElements.define("app-header", AppHeader);
 

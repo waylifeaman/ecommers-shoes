@@ -67,4 +67,23 @@ route.put('/bulk', async (req, res) => {
     }
 });
 
+// Get Size By Produk_id
+route.get('/product/:product_id', (req, res)=>{
+    const { product_id } = req.params;
+    const query = 'SELECT * FROM product_sizes WHERE product_id = ?';
+    
+
+    connection.query(query, [product_id], (err, results) => {
+        if (err) {
+            return res.status(500).json({ message: "Server error", error: err });
+        }
+
+        if (results.length === 0) {
+            return res.status(404).json({ message: "Size tidak ditemukan untuk produk ini" });
+        }
+
+        res.status(200).json(results); // array, karena bisa lebih dari 1 size
+    });
+})
+
 module.exports = route;

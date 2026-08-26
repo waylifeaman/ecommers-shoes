@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sultan || Keranjang</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+        <link rel="stylesheet" href="../../shared/css/home/hearder.css">
+        <link rel="stylesheet" href="../../shared/css/helper/global.css">
+        <link rel="stylesheet" href="../../css/home/cart.css">
+</head>
+<body>
+    <app-header></app-header>
+    <main>
+        <div class="cart-content">
+            <div class="head-cart">
+                <div></div>
+                <!-- <input type="checkbox" id="pilih-semua"> -->
+                <p style="font-weight: bold;"><span></span>Produk</p>
+                <p class="head-p">Harga Satuan</p>
+                <p class="head-p">Quantity</p>
+                <p class="head-p">Total Harga</p>
+                <p class="head-p">Aksi</p>
+            </div>
+            <div class="produk-content">
+
+            </div>
+            
+        </div>
+        
+    </main>
+
+
+    <footer>
+        <div class="card-footer">        
+            <div class="checkbox">
+                <input type="checkbox" id="pilih-semua">
+                <label for="checkbox">Pilih Semua</label>
+            </div>  
+            <div>
+                <p class="delete-item">Hapus</p>
+            </div>
+            <div class="total-produk">
+                <p>Total <span id="total-produk"></span></p>
+            </div>
+            <div class="total-harga">
+                <p>Total Harga: <span id="total-harga"></span></p>
+            </div>
+            <div class="btn-checkout">
+                <button class="ckeckout">Checkout</button>
+            </div>
+        </div>
+    </footer>
+    <!-- <app-footer></app-footer> -->
+
+
+    <script src="../../shared/js/component/home/header.js"></script>
+    <script src="../../shared/js/component/home/footer.js"></script>
+    <script src="../../shared/js/component/publicFunction.js"></script>
+
+    <script src="../js/home/cartDetail.js"></script>
+    <script src="../../shared/api/Cart.js"></script>
+    <!-- <script src="../../shared/api/orders.js"></script> -->
+</body>
+</html>

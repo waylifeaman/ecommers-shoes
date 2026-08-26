@@ -8,6 +8,9 @@ const renderTabCategory = async function () {
     divliat.className = 'rowLiat';
     const liatsemua = document.createElement('p');
     liatsemua.className = 'liatSemua';
+    liatsemua.onclick = ()=>{
+        location.href = "../../features/home/product.html"
+    }
     liatsemua.textContent ="Lihat Semua";
     divliat.append(liatsemua);
     const divCategori = document.createElement('div');
@@ -78,6 +81,9 @@ function renderDataByCat(product){
     for(const item of product) {
         const divCard = document.createElement('div');
         divCard.className = "card-produk";
+        divCard.onclick = () => {
+        location.href = `../../features/home/detail-produk.html?id=${item.id}`;
+        };
         const divImg = document.createElement('div');
         divImg.className = "img-produk";
         const img = document.createElement('img');
@@ -115,5 +121,10 @@ const renderLayer1 = async function(){
 }
 
 document.addEventListener("DOMContentLoaded", async()=>{
+    const kota = document.querySelector('.kotak');
+    kota.addEventListener('click',()=>{
+        location.href= "../../features/home/product.html"
+    });
+
     await renderLayer1(),
     await renderTabCategory()});

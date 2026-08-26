@@ -69,6 +69,20 @@ route.put('/:id/activate', (req, res) => {
     );
 });
 
+// AMBil Data Produk by ID
+route.get('/:id', (req, res)=>{
+      const { id } = req.params;
+    const query='SELECT * FROM products WHERE id = ?';
+    connection.query(query, [id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: "Server error", error: err });
+    }
 
+    if (results.length === 0) {
+      return res.status(404).json({ message: "Produk tidak ditemukan" });
+    }
 
+    res.status(200).json(results[0]); // kirim 1 object produk
+  });
+})
 module.exports = route;

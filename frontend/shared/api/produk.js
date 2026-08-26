@@ -126,6 +126,17 @@ async function filterDataByCategory(categoryId) {
 
     await renderData(filteredProducts);
 }
+async function getProductDetail() {
+  try {
+    const res = await fetch(`http://localhost:3000/data-product/${id}`);
+    if (!res.ok) throw new Error("Produk tidak ditemukan");
+    const product = await res.json();
+    renderProduct(product);
+  } catch (error) {
+    document.querySelector(".detail-produk").innerHTML = 
+      `<p>Gagal memuat produk: ${error.message}</p>`;
+  }
+}
 
 
 getProduct();

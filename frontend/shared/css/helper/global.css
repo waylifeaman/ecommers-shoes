@@ -57,7 +57,8 @@
 }
 
 body {
-    font-family: var(--font-body);
+    /* font-family: var(--font-body); */
+        font-family: Arial, Helvetica, sans-serif;
     color: var(--color-text);
     background: var(--color-bg);
     line-height: 1.5;

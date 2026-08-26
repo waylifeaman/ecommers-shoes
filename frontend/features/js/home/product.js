@@ -58,6 +58,9 @@ function RendercardProduk(product){
     for(const item of product) {
         const divCard = document.createElement('div');
         divCard.className = "card-produk";
+        divCard.onclick = () => {
+        location.href = `../../features/home/detail-produk.html?id=${item.id}`;
+        };
         const divImg = document.createElement('div');
         divImg.className = "img-produk";
         const img = document.createElement('img');
