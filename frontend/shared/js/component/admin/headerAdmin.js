@@ -26,7 +26,7 @@ class AppAdminHeader extends HTMLElement {
                         <a href="" id="route-home">Home</a>
                         <a href="" id="route-profile">Profile</a>
                         <a href="" id="route-category">Category</a>                        
-                        <a href="" id= "route-size">Order</a>
+                        <a href="" id="route-order">Order</a>
                         <a href="" id="log-out">Log-Out</a>
                     </div>
                 </div>             
@@ -44,11 +44,11 @@ class AppAdminHeader extends HTMLElement {
         window.location.href = "../../features/admin/admin.html";
     })
 
-    const routeSizeProduk = this.querySelector("#route-size");
-    routeSizeProduk.addEventListener("click",(e)=>{
-        e.preventDefault();
-        window.location.href = "../../features/admin/produkSize.html"
-    })
+    const order = document.querySelector('#route-order');
+    order.addEventListener("click", (e) => {
+      e.preventDefault(); 
+      window.location.href = "../../features/admin/order.html"; 
+    });
 
     const logOut = this.querySelector("#log-out");
     logOut.addEventListener('click',()=>{

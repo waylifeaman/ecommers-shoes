@@ -7,11 +7,11 @@ if (!currentUser) {
     window.location.href = "login.html";
 }
 
-async function addProductCart() {
+async function addProductCart(redirectToCart = true) {
     const sizeActive = document.querySelector(".active");
     if (!sizeActive) {
         alert("pilih size terlebih dulu");
-        return;
+        return null;   // ✅ return null kalau gagal, supaya pemanggil tahu harus berhenti
     }
     const size = Number(sizeActive.textContent);
 
@@ -21,15 +21,13 @@ async function addProductCart() {
 
     const item = cartItems.find(i => i.product_id === id && i.size === size);
 
-    // --- validasi stok (masih kurang di kode kamu) ---
     const qtyLama = item ? item.qty : 0;
     const totalQtyNanti = qtyLama + jumlah;
 
     if (totalQtyNanti > stokTersedia) {
         alert(`Stok tidak mencukupi. Stok tersedia: ${stokTersedia}, di keranjang sudah ada: ${qtyLama}`);
-        return;
+        return null;
     }
-    // --- akhir validasi ---
 
     const data = {
         user_id: currentUser.id,
@@ -37,7 +35,7 @@ async function addProductCart() {
         size: size,
         qty: jumlah
     };
-    
+
     try {
         const res = await fetch(endPointCart, {
             method: "POST",
@@ -48,13 +46,21 @@ async function addProductCart() {
         if (!res.ok) {
             const error = await res.json();
             alert(`Tambah Produk gagal: ${error.message || error.error}`);
-            return;
+            return null;
         }
 
-        alert("Produk Berhasil Ditambah Ke Keranjang");
-        location.href="../../features/home/cart.html"
+        const result = await res.json();   // ✅ ambil hasilnya, termasuk "id" cart
+
+        // ✅ redirect HANYA kalau diminta (default: true, untuk tombol "Masukkan Keranjang")
+        if (redirectToCart) {
+            alert("Produk Berhasil Ditambah Ke Keranjang");
+            location.href = "../../features/home/cart.html";
+        }
+
+        return result;   // ✅ selalu return hasilnya, supaya bisa dipakai lanjut checkout
     } catch (err) {
         console.log("error", err);
+        return null;
     }
 }
 async function getDataCart(userId) {

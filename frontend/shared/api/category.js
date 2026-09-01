@@ -1,3 +1,4 @@
+
 const endpointCategory  = "http://localhost:3000/data-category";
 // GET
 async function getDataCategory() {

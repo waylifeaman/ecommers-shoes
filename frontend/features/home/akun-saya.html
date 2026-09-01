@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sultan || Akun Saya</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        
+        <!-- Icon Person-->
+        <link rel="stylesheet" href="../../shared/css/helper/global.css">
+        <link rel="stylesheet" href="../../shared/css/home/hearder.css">
+        <link rel="stylesheet" href="../../css/home/riwayat-order.css">
+</head>
+<body>
+    <app-header></app-header>
+<main class="main">
+    <div class="side-bar">
+        <div class="head-side">
+            <p class="nama-user">Nama User</p>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>Akun Saya</li>
+                <li>Pesanan Saya</li>
+                <li>Notifikasi</li>
+                <li class="log-out">logout</li>
+            </ul>
+        </div>
+    </div>
+    <div class="riwayat-order">
+        <div class="head">
+            <div class="tab">
+                <div id="all" class="tab-value active">Semua</div>
+                <div id="pending" class="tab-value">Belum Bayar</div>
+                <div id="paid" class="tab-value">Konfirm</div>
+                <div id="prosess" class="tab-value">Proses</div>
+                <div id="shipped" class="tab-value">Dikirim</div>
+                <div id=selesai class="tab-value">Selesai</div>
+                <div id=cancel class="tab-value">Batal</div>
+            </div>
+        </div>
+        <div class="container-pro">
+            <div class="riwayat-content">
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+</main>
+    <script src="../../shared/js/component/home/header.js"></script>
+    <script src="../../shared/js/component/home/footer.js"></script>
+    <script src="../../shared/api/riwayatOrder.js"></script>
+    <script src="../js/home/riwayatOrder.js"></script>
+    <script src="../../shared/js/component/publicFunction.js"></script>
+</body>
+</html>

@@ -8,6 +8,31 @@ route.get('/', (req, res)=>{
         res.json(result);
     })
 })
+
+//  ROUTE GET DATAORDER UNTUK ADMIN
+route.get('/order-admin',(req, res)=>{
+    const sql = `SELECT
+                order_items.id AS order_item_id,
+                order_items.order_id,
+                order_items.product_id,
+                order_items.size,
+                order_items.qty,
+                order_items.price,
+                products.name,
+                products.image,
+                orders.total,
+                orders.status
+            FROM order_items
+            JOIN products ON order_items.product_id = products.id 
+            JOIN orders ON order_items.order_id = orders.id           
+    
+    `
+    connection.query(sql, (err, result)=>{
+        if(err) return res.status(500).json({error: err.message});
+        res.json(result);
+    }        
+    )
+})
 // INNPUT DATA
 route.post('/',(req, res)=>{
     const{user_id, total, status} = req.body
@@ -173,12 +198,68 @@ route.get('/:order_id', (req, res) => {
             if (err) return res.status(500).json({ error: err.message });
 
             // 3. gabungkan jadi 1 response
-            res.json({
-                ...order,
-                items: items
-            });
+            res.json({...order, items: items}
+        );
         });
     });
 });
+
+//Update Satatus orderr
+route.put('/:id/status',(req, res)=>{
+    const { status } = req.body;
+
+    const validasiStatus = ['pending', 'paid', 'prosess', 'shipped', 'selesai', 'cancel'];
+    if(!validasiStatus.includes(status)){return res.status(400).json({error: "Setatus Tidak Valid"})}
+
+    connection.query('UPDATE orders SET status = ? WHERE id = ?',
+        [status, req.params.id],
+        (err, result)=>{
+            if(err) return res.status(500).json({error: err.message});
+            if(result.affectedRows === 0){
+                return res.status(404).json({error: "Order tidak di temukan"})
+            }
+            res.json({message: `Setatus Berhasil Di Ubah jadi ${status}`})
+        }
+    )
+})
+
+
+// Get Data Riwayat order berdasarakan user_id
+route.get('/user/:user_id',(req, res)=>{
+    const { user_id } = req.params;
+
+    // Ambil data yang di buthukan 
+    const query = `
+                SELECT
+            orders.id AS order_id,
+            orders.status,
+            orders.total,
+            orders.created_at,
+            order_items.id AS order_item_id,
+            order_items.product_id,
+            order_items.size,
+            order_items.qty,
+            order_items.price,
+            products.name,
+            products.image
+        FROM orders
+        JOIN order_items ON orders.id = order_items.order_id
+        JOIN products ON order_items.product_id = products.id
+        WHERE orders.user_id = ?
+        ORDER BY orders.created_at DESC
+    `;
+    connection.query(query, [user_id], (err, results)=>{
+        if(err){
+            return res.status(500).json({error: err.message});
+        }
+        res.json(results);
+    })
+
+})
+
+
+
+
+
 
 module.exports = route;

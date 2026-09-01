@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Masuk</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/helper/alert.css">
+    <link rel="stylesheet" href="../../shared/css/helper/global.css">
+    <link rel="stylesheet" href="../../shared/css/admin/globalAdmin.css">
+    <link rel="stylesheet" href="../../shared/css/admin/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/admin/order.css">
+</head>
+<body>
+    <app-admin-header title="Orderan Masuk"></app-admin-header>
+    <main>
+        <div class="conten-order">
+            <div class="tab-order">
+                <li class="tab active" id="pending">Baru</li>
+                <li class="tab" id="paid">Paid</li>
+                <li class="tab" id="prosess">Proses</li>
+                <li class="tab" id="shipped">Kirim</li>
+                <li class="tab" id="selesai">Selesai</li>
+                <li class="tab" id="cancel">Cencel</li>
+            </div>
+            <div class="produk-order">
+                <table class="tabel-produk" >
+                    <thead>
+                        <tr class="head-tr"> 
+                            <th width="10%">GAMBAR</th>
+                            <th width="70%">DETAIL PRODUK</th>
+                            <th width="20%" class="text-right">AKSI</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tabel-conten-produk">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../shared/js/component/admin/headerAdmin.js"></script>
+    <script src="../js/admin/api/orderAdmin.js"></script>
+    <script src="../js/admin/scriptOrder.js"></script>
+    <script src="../../shared/js/component/publicFunction.js"></script>
+</body>
+</html>

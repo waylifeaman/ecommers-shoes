@@ -1,6 +1,5 @@
 // const btnCheckOut= document.querySelector('.ckeckout');
 
-
 // render detail order
 const params = new URLSearchParams(window.location.search);
 const orderId = Number(params.get("id"));
@@ -21,54 +20,49 @@ async function getOrderDetail(orderId) {
     }
 }
 
-function renderOrderDetail(order) {
-    const container = document.querySelector(".order-detail");
+// Konfimasi Setatus Pembayaran
+async function KonfirmasiPembayaran(orderId) {
+     const konfirmasi = confirm("Konfirmasi bahwa kamu sudah melakukan pembayaran?");
+    if (!konfirmasi) return;
+     try {
+        const res = await fetch(`http://localhost:3000/data-order/${orderId}/status`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ status: "paid" })
+        });
 
-    if (!order) {
-        container.innerHTML = "<p>Order tidak ditemukan</p>";
-        return;
+        if (!res.ok) {
+            throw new Error("Gagal mengonfirmasi pembayaran");
+        }
+
+        alert("Pembayaran berhasil dikonfirmasi!");
+
+        // render ulang halaman biar status & tombol ter-update
+        const updatedOrder = await getOrderDetail(orderId);
+        // renderOrderDetail(updatedOrder);
+        location.href = `akun-saya.html`
+
+    } catch (err) {
+        console.error(err.message);
+        alert("Gagal mengonfirmasi pembayaran");
     }
-
-    container.innerHTML = "";
-
-    // header info order
-    const headerInfo = document.createElement('div');
-    headerInfo.className = "order-header";
-    headerInfo.innerHTML = `
-        <p>Order ID: #${order.id}</p>
-        <p>Status: ${order.status}</p>
-        <p>Tanggal: ${new Date(order.created_at).toLocaleDateString('id-ID')}</p>
-    `;
-    container.append(headerInfo);
-
-    // list item di order ini
-    const itemList = document.createElement('div');
-    itemList.className = "order-item-list";
-
-    order.items.forEach(item => {
-        const div = document.createElement('div');
-        div.className = "order-item";
-        div.innerHTML = `
-            <img src="${item.image}" class="order-item-img">
-            <div class="order-item-info">
-                <h4>${item.name}</h4>
-                <p>Size: ${item.size} | Qty: ${item.qty}</p>
-                <p>${formatRupiah(item.price)}</p>
-            </div>
-        `;
-        itemList.append(div);
-    });
-
-    container.append(itemList);
-
-    // total keseluruhan
-    const totalDiv = document.createElement('div');
-    totalDiv.className = "order-total";
-    totalDiv.innerHTML = `<p>Total: ${formatRupiah(order.total)}</p>`;
-    container.append(totalDiv);
 }
+
+//tabb status
+function tabStatus(){
+    
+}
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     const order = await getOrderDetail(orderId);
     renderOrderDetail(order);
+
+    const back = document.querySelector('.back');
+    if (back) {
+        back.addEventListener('click', () => {
+            location.href = '../../features/home/cart.html';
+        });
+    }
 });

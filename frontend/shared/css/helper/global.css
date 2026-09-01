@@ -63,8 +63,11 @@ body {
     background: var(--color-bg);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-size: 1rem;
 }
-
+p{
+    font-size: 1rem;
+}
 h1,
 h2,
 h3,

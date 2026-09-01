@@ -1,4 +1,14 @@
 const endpointSize = "http://localhost:3000/data-size-product"; // nama unik, tidak bentrok "endpoint"
+
+async function getProductSizes(productId) {
+    const res = await fetch(`${endpointSize}?product_id=${productId}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" }
+    });
+    if (!res.ok) throw new Error("Gagal mengambil data stok");
+    return await res.json();
+}
+
 async function saveProductSizes(productId, sizesArray) {
     const res = await fetch(`${endpointSize}/bulk`, {
         method: "PUT",
@@ -12,26 +22,3 @@ async function saveProductSizes(productId, sizesArray) {
     console.log("berhasil")
     return await res.json();
 }
-
-let jumlah = 1;
-let stokTersedia = 0;
-
-async function getProductSizes(productId) {
-  try {
-    const res = await fetch(`http://localhost:3000/data-size-product/product/${productId}`);
-    if (!res.ok) throw new Error("Size tidak ditemukan");
-    const sizes = await res.json();
-    renderSizes(sizes);
-  } catch (error) {
-    console.error(error.message);
-  }
-}
-function renderStok(stokValue) {
-    const pStok = document.querySelector('.p-stok');
-    pStok.textContent = `Stok: ${stokValue}`;
-}
-
-
-
-
-

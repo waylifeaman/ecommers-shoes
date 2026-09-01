@@ -1,7 +1,4 @@
-body{
-    /* font-size: 0.8rem;   */
 
-}
 .cart-content{
     display: flex;
     flex-direction: column;
@@ -62,18 +59,20 @@ footer{
     position: fixed;
     display: flex;
     width: 100%;
-    height: 3rem;
+    height: 5rem;
     padding: 0 0.5rem 0 0.5rem ;
 }
+.kosong{display: none;}
 .card-footer{
     display: grid;
-    grid-template-columns: 0.8fr 0.5fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
-    justify-items: center;
+    justify-items: start;
     width: 100%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    
+    background-color: #fff;    
+    text-align: center;
+    padding: 10px;
 }
 
 .btn-checkout button:hover{
@@ -85,6 +84,7 @@ footer{
     padding: 0.5rem 1rem 0.5rem 1rem;
     background-color: black;
 }
+
 .delete-item{
     cursor: pointer;
     color: red;
@@ -92,4 +92,68 @@ footer{
 .delete-item:hover{
     padding: 3px;
     background-color: rgb(206, 206, 206);
+}
+.total-harga{
+}
+
+@media (max-width: 768px){
+    body {
+            /* font-size: 0.8rem;   */
+            font-size: 0.8rem;
+            width: 100%;
+        }
+    .head-cart {
+        display: grid;
+        grid-template-columns:  20px 3fr 1fr 1fr 1fr 1fr;
+        height: auto;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+    }
+    .card-pesanan{
+        grid-template-columns: 20px 3fr 1fr 1fr 1fr 1fr;
+        gap: 0.1rem;
+        text-align: center;
+    }
+    /* .deskripsi-produk{
+        display: none;
+    } */
+    .detail-pesanan{
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+    .detail-pesanan .image-produk{
+        width: 100%;
+    }
+    .detail-pesanan .keterangan{
+        width: 100%;
+    }
+    footer {
+        height: auto ;
+        font-size: 0.8rem;
+    }
+    .card-footer {
+        gap: 1rem;
+        justify-content: center;
+        align-items: start;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 1.5fr 0.7fr 0.3fr 2fr 1fr;
+        padding: 5px;
+        overflow: hidden;
+        text-align: center;
+    }
+    .kosong {
+            display: flex;
+        }
+    .card-footer .btn-checkout{
+        width: auto;
+    }
+    .checkbox{
+        padding-bottom: 0.7rem;
+        display: flex;
+        flex-direction: column;
+    }
+
 }

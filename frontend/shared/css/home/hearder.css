@@ -108,11 +108,13 @@ footer .conten-footer{
 
  /* TAB */
  @media (max-width: 768px){
+
     .header{
         display: flex;
         flex-direction: column;
         height: auto;
         max-width: 768px;
+        font-size: 0.8rem;
     }
     .col-1{
         width: 100%;

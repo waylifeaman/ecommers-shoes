@@ -30,16 +30,17 @@ function renderCart(cartItem) {
         const pName = document.createElement('p');
         pName.textContent = item.name ;
         const pDes = document.createElement('p');
-        pDes.textContent = item.description ;
+        pDes.textContent = "" ;
+        pDes.className = "deskripsi-produk"
         const pSize = document.createElement('p');
-        pSize.textContent = item.size ;
+        pSize.textContent ="Size:" + " "+ item.size ;
         produk.append(pName, pDes, pSize);
         divImg.append(img, produk);
 
         const price = document.createElement('p');
         price.textContent = formatRupiah(item.price);
         const pQty = document.createElement('p');
-        pQty.textContent = item.qty ;
+        pQty.textContent =item.qty ;
 
         const TotalPrice = document.createElement('p');
         let total = item.qty * item.price;
@@ -85,15 +86,6 @@ pilihSemua.addEventListener('change',(e)=>{
      updateSummary();
 })
 
-const btnCheckOut = document.querySelector('.ckeckout');
-btnCheckOut.addEventListener('click',()=>{
-    const pilihItem = getSelectedItems();
-    if(pilihItem.length === 0){ alert("pilih item terlebih dahulu");
-        return
-        }
-})
-    
-
 // HAPUS SEMUA 
 const btnHapusAll = document.querySelector('.delete-item');
 btnHapusAll.addEventListener('click',async()=>{
@@ -137,6 +129,7 @@ function updateSummary() {
     document.querySelector('#total-harga').textContent = formatRupiah(totalHarga);
 }
 
+const btnCheckOut = document.querySelector('.ckeckout');
 btnCheckOut.addEventListener('click', async () => {
     const selectedIds = getSelectedItems(); // array cart_id, dari checkbox yang dicentang
 

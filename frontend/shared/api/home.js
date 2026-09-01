@@ -12,7 +12,4 @@ function logoutFunction() {
     window.location.href = "../auth/login.html";
 }
 
-logout.addEventListener("click",()=>{
-    console.log("logkot")
-    logoutFunction()
-})
+

@@ -1,0 +1,83 @@
+
+body{
+    font-size: 1rem;
+}
+p{
+    /* font-size: .79rem; */
+}
+/* MAIN */
+.nav-head{
+    margin: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.nav-head ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    justify-items: center;
+    height: 3rem;
+    align-items: center;    
+}
+.container-item{
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    gap: 1rem;
+    display: grid;
+    text-align: center;
+    align-items: center;
+}
+
+.order-item{
+    display: grid;grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: start;   
+    border-bottom: 1px solid gray;
+}
+.order-item .col-2, .col-3, .col-4{
+    text-align: center;
+}
+.order-item .col-1{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+}
+.order-item-img{
+    width: 80%;
+}
+.card-konfirmBayar{
+    margin: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    height: auto;
+    justify-content: end;
+    display: grid;
+    padding:  20px;
+    gap:  20px;
+    flex-direction: column;
+}
+
+.btn-bayar{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+.btn-bayar:hover{
+    background-color: rgb(213, 213, 213);
+    color: black;
+}
+
+
+.back{
+    margin-top: 1rem;
+    margin-left: 1rem;    
+}
+.back:hover{
+    color: red;
+}
+
+@media (max-width: 768px){
+    
+}
