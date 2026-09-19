@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => res.send('API berjalan'));
 
 const userRoute = require('./routes/users')
 const productRoute = require('./routes/product')
@@ -21,5 +22,12 @@ app.use('/data-order', orderRoute);
 app.use('/data-cart', cartRoute);
 app.use('/data-order-item', orderItemRoute);
 app.use('/data-size-product', productSizeRoute);
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server jalan di port ${PORT}`));
+
+
+module.exports = app;
+
+// Hanya jalan kalau dijalankan langsung di laptop (node index.js)
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Server jalan di port ${PORT}`));
+}
