@@ -21,5 +21,5 @@ app.use('/data-order', orderRoute);
 app.use('/data-cart', cartRoute);
 app.use('/data-order-item', orderItemRoute);
 app.use('/data-size-product', productSizeRoute);
-  
-app.listen(3000, () => console.log('Server jalan di http://localhost:3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server jalan di port ${PORT}`));
