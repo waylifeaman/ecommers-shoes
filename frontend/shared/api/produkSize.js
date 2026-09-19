@@ -1,4 +1,4 @@
-const endpointSize = "http://localhost:3000/data-size-product"; // nama unik, tidak bentrok "endpoint"
+const endpointSize = "https://ecommers-shoes.vercel.app/data-size-product"; // nama unik, tidak bentrok "endpoint"
 async function saveProductSizes(productId, sizesArray) {
     const res = await fetch(`${endpointSize}/bulk`, {
         method: "PUT",
@@ -18,7 +18,7 @@ let stokTersedia = 0;
 
 async function getProductSizes(productId) {
   try {
-    const res = await fetch(`http://localhost:3000/data-size-product/product/${productId}`);
+    const res = await fetch(`https://ecommers-shoes.vercel.app/data-size-product/product/${productId}`);
     if (!res.ok) throw new Error("Size tidak ditemukan");
     const sizes = await res.json();
     renderSizes(sizes);

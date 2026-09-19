@@ -6,7 +6,7 @@ const orderId = Number(params.get("id"));
 
 async function getOrderDetail(orderId) {
     try {
-        const res = await fetch(`http://localhost:3000/data-order/${orderId}`);
+        const res = await fetch(`https://ecommers-shoes.vercel.app/data-order/${orderId}`);
 
         if (!res.ok) {
             throw new Error("Order tidak ditemukan");
@@ -25,7 +25,7 @@ async function KonfirmasiPembayaran(orderId) {
      const konfirmasi = confirm("Konfirmasi bahwa kamu sudah melakukan pembayaran?");
     if (!konfirmasi) return;
      try {
-        const res = await fetch(`http://localhost:3000/data-order/${orderId}/status`, {
+        const res = await fetch(`https://ecommers-shoes.vercel.app/data-order/${orderId}/status`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ status: "paid" })

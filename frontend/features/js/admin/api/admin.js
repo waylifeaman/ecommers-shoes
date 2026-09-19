@@ -1,4 +1,4 @@
-const endpointSize = "http://localhost:3000/data-size-product"; // nama unik, tidak bentrok "endpoint"
+const endpointSize = "https://ecommers-shoes.vercel.app/data-size-product"; // nama unik, tidak bentrok "endpoint"
 
 async function getProductSizes(productId) {
     const res = await fetch(`${endpointSize}?product_id=${productId}`, {

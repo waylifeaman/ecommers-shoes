@@ -49,7 +49,7 @@ function validasiData(data) {
 }
 
 
-const endpointDataUser = "http://localhost:3000/data-users" 
+const endpointDataUser = "https://ecommers-shoes.vercel.app/data-users" 
 
 async function addUsers(data) {
     const res = await fetch(endpointDataUser,{
@@ -71,7 +71,7 @@ async function addUsers(data) {
 }
 
 async function loginUser(data) {
-    const res = await fetch("http://localhost:3000/data-users/login", {
+    const res = await fetch("https://ecommers-shoes.vercel.app/data-users/login", {
         method: "POST",
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify(data)

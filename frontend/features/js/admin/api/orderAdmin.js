@@ -1,5 +1,5 @@
 async function getOrder(){
-    const res = await fetch('http://localhost:3000/data-order/order-admin',{
+    const res = await fetch('https://ecommers-shoes.vercel.app/data-order/order-admin',{
             method: "GET",
             headers: { "Content-Type": "application/json" }
         }
@@ -10,7 +10,7 @@ async function getOrder(){
 } 
 
 async function updateOrderStatus(orderId, status) {
-    const res = await fetch(`http://localhost:3000/data-order/${orderId}/status`, {
+    const res = await fetch(`https://ecommers-shoes.vercel.app/data-order/${orderId}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status })

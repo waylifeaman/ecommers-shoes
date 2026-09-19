@@ -1,4 +1,4 @@
-const endPointCart = "http://localhost:3000/data-cart";
+const endPointCart = "https://ecommers-shoes.vercel.app/data-cart";
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 if (!currentUser) {

@@ -141,7 +141,7 @@ btnCheckOut.addEventListener('click', async () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     try {
-        const res = await fetch("http://localhost:3000/data-order/checkout", {
+        const res = await fetch("https://ecommers-shoes.vercel.app/data-order/checkout", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

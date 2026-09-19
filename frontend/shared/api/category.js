@@ -1,5 +1,5 @@
 
-const endpointCategory  = "http://localhost:3000/data-category";
+const endpointCategory  = "https://ecommers-shoes.vercel.app/data-category";
 // GET
 async function getDataCategory() {
     const res = await fetch(endpointCategory , {

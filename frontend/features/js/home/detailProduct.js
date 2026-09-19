@@ -112,7 +112,7 @@ btnBeli.addEventListener('click', async () => {
 
     try {
         // 2. Langsung checkout HANYA item yang barusan ditambahkan
-        const checkoutRes = await fetch("http://localhost:3000/data-order/checkout", {
+        const checkoutRes = await fetch("https://ecommers-shoes.vercel.app/data-order/checkout", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

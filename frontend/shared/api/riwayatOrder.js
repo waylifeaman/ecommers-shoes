@@ -1,5 +1,5 @@
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-const endpoint = "http://localhost:3000/data-order"
+const endpoint = "https://ecommers-shoes.vercel.app/data-order"
 let allOrder = []
 
 

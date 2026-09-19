@@ -1,5 +1,5 @@
 
-const endpoint = "http://localhost:3000/data-product";
+const endpoint = "https://ecommers-shoes.vercel.app/data-product";
 
 
 // ============ GET DATA ============
@@ -128,7 +128,7 @@ async function filterDataByCategory(categoryId) {
 }
 async function getProductDetail() {
   try {
-    const res = await fetch(`http://localhost:3000/data-product/${id}`);
+    const res = await fetch(`https://ecommers-shoes.vercel.app/data-product/${id}`);
     if (!res.ok) throw new Error("Produk tidak ditemukan");
     const product = await res.json();
     renderProduct(product);
